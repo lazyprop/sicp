@@ -1,0 +1,15 @@
+;;; applicative-order
+(test 0 (p))
+(if (= x 0) 0 (p))
+(if (= x 0) 0 (p))
+(if (= x 0) 0 (p))
+...
+; now operands are evaluated but (p) will take infinitely long
+
+
+;;; normal-order
+(test 0 (p))
+(test 0 (p))
+(test 0 (p))
+(test 0 (p))
+...

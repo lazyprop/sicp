@@ -1,0 +1,4 @@
+((if (> b 0) + -) a b))
+this chooses the operators according to the predicate (> b a)
+the applicative order model of lisp lets operators to be compund expressions
+first the operator is evaluated to get the procedure to be applied

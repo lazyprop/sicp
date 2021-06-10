@@ -1,0 +1,9 @@
+this problem challenges the claim that the if clause needs to be a special form.
+
+since new-if is a normal procedure, due to the applicative-order evaluation
+model of scheme, when sqrt-iter is called then-clause and else-clause are
+evaluated before they are passed as arguments to new-if. the else clause calls
+back to sqrt-iter which in turn tries to evaluate new-if and evaulates
+then-clause and else-clause first and so on
+
+this infinite recursion results in a "recursion depth exceeded error"
