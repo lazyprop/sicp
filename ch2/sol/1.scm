@@ -1,0 +1,20 @@
+(define (xor a? b?)
+  (cond ((and a? b?) #f)
+        ((not (or a? b?)) #f)
+        (else #t)))
+
+(define (make-rat n d)
+  (define g (gcd (abs n) (abs d)))
+  (define (f x) (/ (abs x) g))
+  (cond ((xor (< n 0) (< d 0)) (cons (* -1 (f n)) (f d)))
+        (else (cons (f n) (f d)))))
+
+(define (print text)
+  (display text)
+  (newline))
+
+(print (make-rat 1 2))
+(print (make-rat -2 -4))
+(print (make-rat 2 4))
+(print (make-rat -2 4))
+(print (make-rat 2 -4))
