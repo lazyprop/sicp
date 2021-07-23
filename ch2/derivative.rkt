@@ -24,7 +24,10 @@
                       (eq? (car x) '+)))
 
 (define (addend s) (cadr s))
-(define (augend s) (caddr s))
+(define (augend s)
+  (if (null? (cddr s))
+      0
+      (cons '+ (cddr s))))
 
 
 (define (make-product m1 m2)
@@ -39,7 +42,10 @@
                           (eq? (car x) '*)))
 
 (define (multiplicand p) (cadr p))
-(define (multiplier p) (caddr p))
+(define (multiplier p)
+  (if (null? (cddr p))
+      1
+      (cons '* (cddr p))))
 
 
 (define (make-exponentiation b e)
@@ -82,3 +88,13 @@
                          (deriv u var))))
         
         (else (error "unknown expression type: DERIV" expr))))
+
+
+(define (tests)
+  (define results (list (deriv '(+ (** x 2) (* 2 x) 1) 'x)
+                        (deriv '(+ x x x) 'x)
+                        (deriv '(* x y (+ x 3)) 'x)))
+  (for ([res results])
+    (displayln res)))
+
+(tests)
