@@ -27,20 +27,13 @@
               (else (interestion-set set1
                                      (cdr set2)))))))
 
-#|
-compare first element of s1 and s2
-if (car s1) < (car s2) then:
-    if (element-of-set? (car s1) (cdr s1)) then (union (cdr s1) s2)
-    else (cons (car s1) (union (cdr s1) s2)
-|#
-
 (define (union-set set1 set2)
-  ;; (< (car s1) (car s2))
-  ;; only s2 can be null
-  (define (f s1 s2)
-    (if (element-of-set? (car s1) (cdr s1))
-        (union-set (cdr s1) s2)
-        (cons (car s1) (union-set (cdr s1) s2))))
+  ;; (< (car lo) (car hi))
+  ;; only hi can be null
+  (define (f lo hi)
+    (if (element-of-set? (car lo) (cdr lo))
+        (union-set (cdr lo) hi)
+        (cons (car lo) (union-set (cdr lo) hi)))) ;; only non tail-call
 
   (cond ((and (null? set1) (null? set2)) null)
         ((null? set1) (f set2 set1))
