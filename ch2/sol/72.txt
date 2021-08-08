@@ -1,0 +1,8 @@
+let the number of symbols be n.
+in the special case where freq(s_i) = 2^i, the tree formed will be such that
+each node has the right child as a leaf node and the left child representing all
+(s_1 ... s_i)
+
+on the n-th level, get-branch-chooser takes O(n) operations
+encode-symbol is recursively called between 1 and n times, so in the worst
+case the complexity will be O(n^2).

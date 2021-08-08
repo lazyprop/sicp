@@ -1,0 +1,9 @@
+The tree will look like this:
+for each node n which has symbols (s1 ... sn),
+left node = (s1 .. s(n-1))
+right node = sn
+
+This is because for all n, s1 + s2 + ... + s(n-1) = sn - 1
+
+The most frequent symbol, sn will require 1 bit
+The least frequent symbol, s1 will require n-1 bits
