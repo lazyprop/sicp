@@ -1,5 +1,7 @@
 #lang racket
 
+(provide (all-defined-out))
+
 (define variable? symbol?)
 
 (define (zero? x) (and (number? x)
