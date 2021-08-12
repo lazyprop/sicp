@@ -1,0 +1,21 @@
+Explicit dispatch allows to add new operations without changing the existing
+code. A new operation is simply a new proceure definition which does explicit
+dispatching.
+
+Message passing style makes it slightly hard to add operations on existing
+types. We would have to change all the old code. If we implement a new
+operation, we will have to go to the defintion of each existing type and add
+a condition there for that  operation.
+
+In the message passing style we can add new types without changing any of the
+old code.
+
+Data-directed style allows to add new operations as a new operation is just
+another entry in the table. For each type we have to define the operation and
+`put` it into the lookup table.
+
+Data-directed style also allows us to add new types. A new type is just a new
+column to the table. We can define it without changing the old code and `put` it
+into the table.
+
+see: http://wiki.c2.com/?ExpressionProblem

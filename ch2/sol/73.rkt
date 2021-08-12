@@ -12,3 +12,8 @@
 
 (define (operator expr) (car expr))
 (deifne (operands expr) (cdr expr))
+
+;; most of the conditions int he deriv procedure were
+;; replaced with a get procedure call to make the impelementation
+;; more data directed. (get 'deriv (operator exp) ...) call gets the
+;; procedure according to type tags and then it is applied to operands.
